@@ -28,6 +28,7 @@ build:
       echo ""
       echo "Copying the built HelloWorldEAR Web Application to required location."
       mkdir -p /u01/oracle/HelloWorld/
+      cp -rf resources/HelloWorldEAR.ear /u01/oracle/
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
       cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/HelloWorld/
