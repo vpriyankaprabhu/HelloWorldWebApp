@@ -23,8 +23,10 @@ build:
        echo `pwd`
        echo "Copying the built HelloWorldEAR Web Application to required location."
        cp resources/HelloWorldEAR.ear /u01/oracle/.
-       echo "Checking the working directory contents"
+       echo "Checking the current working directory contents"
        ls -ltr *
+       echo "Checking the directory[/u01/oracle/] contents"
+       ls -ltr /u01/oracle/*
 
 #   - internal/docker-push:
 #      name: push the operator image to repo
