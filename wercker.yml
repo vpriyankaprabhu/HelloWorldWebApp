@@ -9,12 +9,23 @@ build:
     cmd: /bin/bash
 
   steps:
-
    - script:
-      name: example
+     name: "Create/Build the HelloWorld Web Application"
+     code: |
+       echo `pwd`
+       echo "Building the artifacts required to create HelloWorld web application."
+       mvn clean install
+       echo "Checking the working directory contents :"
+       ls -ltr *
+   - script:
+      name: "Copy the built HelloWorldEAR Web Application"
       code: |
-          ls -ltr
-          ls
+       echo `pwd`
+       echo "Copying the built HelloWorldEAR Web Application to required location."
+       cp resources/HelloWorldEAR.ear /u01/oracle/.
+       echo "Checking the working directory contents"
+       ls -ltr *
+
 #   - internal/docker-push:
 #      name: push the operator image to repo
 #      username: $GCR_IO_USERNAME
