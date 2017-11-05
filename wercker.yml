@@ -1,6 +1,4 @@
 #The container definition we want to use for developing our app
-box: oraclelinux:7.3
-
 build:
 
  box:

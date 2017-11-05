@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOMAIN_HOME=/u01/oracle/domains/base_domain
+DOMAIN_HOME=/u01/oracle/user_projects/domains/base_domain
 
 ########### SIGTERM handler ############
 function _term() {
@@ -18,13 +18,13 @@ trap _term SIGTERM
 # Set SIGKILL handler
 trap _kill SIGKILL
 
-DOMAIN_HOME=/u01/oracle/domains/base_domain
+DOMAIN_HOME=/u01/oracle/user_projects/domains/base_domain
 
 #copying the ear of helloworld web application to autodeploy location of domain home
 cp -rf /u01/oracle/resources/HelloWorldEAR.ear ${DOMAIN_HOME}/autodeploy
 
 # Start Admin Server and tail the logs
 echo "Starting WebLogic..."
-${DOMAIN_HOME}/startWebLogic.sh &
+${DOMAIN_HOME}/bin/startWebLogic.sh &
 childPID=$!
 wait $childPID
