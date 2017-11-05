@@ -42,7 +42,7 @@ build:
 
 push-release:
  box: oraclelinux:7.3
-  steps:
+ steps:
    - internal/docker-push:
       name: Push the built image to docker repository
       username: $DOCKER_USERNAME
