@@ -36,6 +36,7 @@ build:
        ls -ltr /u01/oracle/HelloWorld/*
 
 push-release:
+  steps:
    - internal/docker-push:
       name: Push the built image to docker repository
       username: $DOCKER_USERNAME
