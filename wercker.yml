@@ -51,8 +51,8 @@ deploy-webapp-on-weblogic:
   - script:
      name: "Just like that"
      code: |
-      cat /u01/oracle/domain.properties
       docker
+      docker ps
 
 push-release:
 
