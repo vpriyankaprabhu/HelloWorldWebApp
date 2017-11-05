@@ -30,10 +30,10 @@ build:
       mkdir -p /u01/oracle/HelloWorld/
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
-      echo "Checking the [/u01/oracle/] directory contents"
       cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/HelloWorld/
       echo "Changing the permissions for the compiled artifacts."
       chmod 777 /u01/oracle/HelloWorld/*; echo ""
+      echo "Checking the [/u01/oracle/HelloWorld] directory contents"
       ls -ltr /u01/oracle/HelloWorld/*
 
   - script:
@@ -50,7 +50,7 @@ deploy-webapp-on-weblogic:
   - script:
      name: "Just like that"
      code: |
-      echo `pwd`
+      cat /u01/oracle/domain.properties
 
 push-release:
 
