@@ -10,21 +10,28 @@ build:
 
   steps:
    - script:
-     name: "Create/Build the HelloWorld Web Application"
+     name: "Build the Project -> HelloWorld Web Application"
      code: |
        echo `pwd`
        echo "Building the artifacts required to create HelloWorld web application."
        mvn clean install
+       echo ""
        echo "Checking the working directory contents :"
        ls -ltr *
    - script:
-      name: "Copy the built HelloWorldEAR Web Application"
+      name: "Copy the built/compiled artifacts of Web Application"
       code: |
        echo `pwd`
+       echo ""
        echo "Copying the built HelloWorldEAR Web Application to required location."
-       cp resources/HelloWorldEAR.ear /u01/oracle/.
-       echo "Checking the current working directory contents"
+       mkdir /u01/oracle/HelloWorld
+       cp resources/HelloWorldEAR.ear /u01/oracle/HelloWorld/.
+       echo ""
+       echo "Changing the permissions for the compiled artifacts."
+       chmod 777 /u01/oracle/HelloWorld/*
+       echo "Checking the current working directory contents:"
        ls -ltr *
+       echo ""
        echo "Checking the directory[/u01/oracle/] contents"
        ls -ltr /u01/oracle/*
 
