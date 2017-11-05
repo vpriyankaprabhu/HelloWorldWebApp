@@ -53,6 +53,6 @@ push-release:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
       tag: $WERCKER_BUILDVERSION
-      repository: docker.io/fmwplt/HelloWorldWebApp
+      repository: docker.io/fmwplt/helloworldwebapp
       entryoint: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
       working-dir: /u01/oracle/
