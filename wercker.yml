@@ -1,42 +1,46 @@
 #The container definition we want to use for developing our app
 build:
+ box:
+  id: quay.io/fmwplt/12213-domain-novol
+  username: $QUAY_IO_USERNAME
+  password: $QUAY_IO_PASSWORD
+  tag: latest
+  cmd: /bin/bash
 
-  box:
-    id: quay.io/fmwplt/12213-domain-novol
-    username: $QUAY_IO_USERNAME
-    password: $QUAY_IO_PASSWORD
-    tag: latest
-    cmd: /bin/bash
-
-  steps:
-   - script:
+ steps:
+  - script:
      name: "Build the Project -> HelloWorld Web Application"
      code: |
-       echo `pwd`
-       echo "Building the artifacts required to create HelloWorld web application."
-       mvn clean install
-       echo ""
-       echo "Checking the ["`pwd`"] directory contents :"
-       ls -ltr *
+      echo `pwd`
+      echo "Building the artifacts required to create HelloWorld web application."
+      mvn clean install
+      echo ""
+      echo "Checking the ["`pwd`"] directory contents :"
+      ls -ltr *
 
-   - script:
-      name: "Copy the built/compiled artifacts of Web Application"
-      code: |
-       echo `pwd`
-       echo ""
-       echo "Copying the built HelloWorldEAR Web Application to required location."
-       mkdir -p /u01/oracle/HelloWorld/
-       cp resources/HelloWorldEAR.ear /u01/oracle/HelloWorld/.; echo ""
-       echo "Changing the permissions for the compiled artifacts."
-       chmod 777 /u01/oracle/HelloWorld/*; echo ""
-       echo "Checking the ["`pwd`"] directory contents :"
-       ls -ltr *;echo ""
-       echo "Checking the [/u01/oracle/] directory contents"
-       cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/HelloWorld/
-       ls -ltr /u01/oracle/HelloWorld/*
+  - script:
+     name: "Copy the built/compiled artifacts of Web Application"
+     code: |
+      echo `pwd`
+      echo ""
+      echo "Copying the built HelloWorldEAR Web Application to required location."
+      mkdir -p /u01/oracle/HelloWorld/
+      echo "Checking the ["`pwd`"] directory contents :"
+      ls -ltr *;echo ""
+      echo "Checking the [/u01/oracle/] directory contents"
+      cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/HelloWorld/
+      echo "Changing the permissions for the compiled artifacts."
+      chmod 777 /u01/oracle/HelloWorld/*; echo ""
+      ls -ltr /u01/oracle/HelloWorld/*
+
+  - script:
+     name: "Stage the artifacts of Web Application"
+     code: |
+      echo "Checking the ["`pwd`"] directory contents :"
+      ls -ltr *;echo ""
+      cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
 push-release:
-
  box: oraclelinux:7.3
   steps:
    - internal/docker-push:
