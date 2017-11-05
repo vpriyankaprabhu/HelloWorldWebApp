@@ -32,15 +32,14 @@ build:
        echo "Checking the ["`pwd`"] directory contents :"
        ls -ltr *;echo ""
        echo "Checking the [/u01/oracle/] directory contents"
-       ls -ltr /u01/oracle/HelloWorld/*
        cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/HelloWorld/
+       ls -ltr /u01/oracle/HelloWorld/*
 
-push-image:
-
+push-release:
    - internal/docker-push:
       name: Push the built image to repository
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
       repository: docker.io/fmwplt/HelloWorldWebApp
       tag: $WERCKER_BUILDVERSION
-      working-dir: $WERCKER_SOURCE_DIR
+      working-dir: /u01/oracle/HelloWorld/
