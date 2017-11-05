@@ -45,9 +45,6 @@ build:
       ls -ltr *;echo ""
       cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
-push-release:
-
- steps:
    - internal/docker-push:
       name: Push the built image to docker repository
       username: $DOCKER_USERNAME
