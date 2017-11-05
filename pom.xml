@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sample.hello</groupId>
+    <artifactId>HelloWorldEAR</artifactId>
+    <packaging>pom</packaging>
+    <version>1.1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>HelloWorldWAR</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sample.hello</groupId>
+            <artifactId>HelloWorldWAR</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.3.2</version>
+                <executions>
+                    <execution>
+                        <id>generate-xml</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>generate-application-xml</goal>
+                        </goals>
+                        <configuration>
+                            <displayName>Hello World WebApp</displayName>
+                            <generatedDescriptorLocation>${project.basedir}/META-INF</generatedDescriptorLocation>
+                            <modules>
+                                <webModule>
+                                    <groupId>com.sample.hello</groupId>
+                                    <artifactId>HelloWorldWAR</artifactId>
+                                    <uri>HelloWorldWAR.war</uri>
+                                    <bundleFileName>HelloWorldWAR.war</bundleFileName>
+                                    <contextRoot>/hello</contextRoot>
+                                </webModule>
+                            </modules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-ear</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>ear</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>HelloWorldEAR</finalName>
+                            <generatedDescriptorLocation>${project.basedir}/META-INF</generatedDescriptorLocation>
+                            <modules>
+                                <webModule>
+                                    <groupId>com.sample.hello</groupId>
+                                    <artifactId>HelloWorldWAR</artifactId>
+                                    <uri>HelloWorldWAR.war</uri>
+                                    <bundleFileName>HelloWorldWAR.war</bundleFileName>
+                                    <contextRoot>/hello</contextRoot>
+                                </webModule>
+                            </modules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}/resources</directory>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>install</phase>
+                        <configuration>
+                            <tasks>
+                                <mkdir dir="${project.basedir}/resources"/>
+                                <copy file="${project.basedir}/target/HelloWorldEAR.ear" tofile="${project.basedir}/resources/HelloWorldEAR.ear"/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
