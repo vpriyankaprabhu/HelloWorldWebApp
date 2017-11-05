@@ -1,12 +1,13 @@
 #The container definition we want to use for developing our app
-
 build:
+
   box:
     id: quay.io/fmwplt/12213-domain-novol
     username: $QUAY_IO_USERNAME
     password: $QUAY_IO_PASSWORD
     tag: latest
-    cmd: /bin/sh -u 0
+    cmd: /bin/bash
+
   steps:
 
    - script:
