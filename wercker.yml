@@ -1,5 +1,8 @@
 #The container definition we want to use for developing our app
+box: oraclelinux:7.3
+
 build:
+
  box:
   id: quay.io/fmwplt/12213-domain-novol
   username: $QUAY_IO_USERNAME
@@ -42,6 +45,7 @@ build:
       cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
 deploy-webapp-on-weblogic:
+
  steps:
   - script:
      name: "Just like that"
@@ -49,7 +53,7 @@ deploy-webapp-on-weblogic:
       echo `pwd`
 
 push-release:
- box: oraclelinux:7.3
+
  steps:
    - internal/docker-push:
       name: Push the built image to docker repository
