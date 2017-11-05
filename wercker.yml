@@ -36,9 +36,17 @@ build:
   - script:
      name: "Stage the artifacts of Web Application"
      code: |
+      echo ""
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
       cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
+
+deploy-webapp-on-weblogic:
+ steps:
+  - script:
+     name: "Just like that"
+     code: |
+      echo `pwd`
 
 push-release:
  box: oraclelinux:7.3
