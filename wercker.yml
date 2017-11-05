@@ -45,15 +45,6 @@ build:
       ls -ltr *;echo ""
       cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
-deploy-webapp-on-weblogic:
-
- steps:
-  - script:
-     name: "Just like that"
-     code: |
-      docker
-      docker ps
-
 push-release:
 
  steps:
@@ -62,5 +53,5 @@ push-release:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
       repository: docker.io/fmwplt/HelloWorldWebApp
-      tag: $WERCKER_BUILDVERSION
-      working-dir: /u01/oracle/HelloWorld/
+      tag: modified:$WERCKER_BUILDVERSION
+      working-dir: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
