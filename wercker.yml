@@ -18,6 +18,7 @@ build:
        echo ""
        echo "Checking the working directory contents :"
        ls -ltr *
+
    - script:
       name: "Copy the built/compiled artifacts of Web Application"
       code: |
@@ -29,11 +30,12 @@ build:
        echo ""
        echo "Changing the permissions for the compiled artifacts."
        chmod 777 /u01/oracle/HelloWorld/*
+       echo ""
        echo "Checking the current working directory contents:"
        ls -ltr *
        echo ""
        echo "Checking the directory[/u01/oracle/] contents"
-       ls -ltr /u01/oracle/*
+       ls -ltr /u01/oracle/HelloWorld/*
 
 #   - internal/docker-push:
 #      name: push the operator image to repo
