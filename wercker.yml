@@ -37,7 +37,7 @@ build:
 
 push-release:
    - internal/docker-push:
-      name: Push the built image to repository
+      name: Push the built image to docker repository
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
       repository: docker.io/fmwplt/HelloWorldWebApp
