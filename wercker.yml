@@ -61,7 +61,7 @@ build:
 # as defined in the Wercker Web Workflows editor.
 deploy-to-kubernetes:
  # We only need a minimal shell environment to run Kubectl.
- box: oraclelinux:7.3
+ box: golang
 
  steps:
   - bash-template
