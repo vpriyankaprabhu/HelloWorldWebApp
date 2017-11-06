@@ -55,6 +55,6 @@ build:
      password: $DOCKER_PASSWORD
      tag: $WERCKER_BUILDVERSION
      repository: docker.io/fmwplt/helloworldwebapp
-     cmd: sh /u01/oracle/entrypoint.sh
-     entryoint: /u01/oracle/entrypoint.sh
+     cmd: /u01/oracle/entrypoint.sh
+     entryoint: /bin/bash
      working-dir: /u01/oracle/
