@@ -60,7 +60,7 @@ build:
 deploy-to-kubernetes:
  # We only need a minimal shell environment to run Kubectl.
  box:
-  id: oraclelinux:7.3
+  id: alpine
   cmd: /bin/sh
 
  steps:
