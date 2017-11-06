@@ -19,10 +19,13 @@ trap _term SIGTERM
 trap _kill SIGKILL
 
 DOMAIN_HOME=/u01/oracle/user_projects/domains/base_domain
+export WEBLOGI_HOME=/u01/oracle/wlserver/server/
+. $WEBLOGI_HOME/bin/setWLSEnv.sh
 
-#copying the ear of helloworld web application to autodeploy location of domain home
-cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear ${DOMAIN_HOME}/autodeploy
+#sh /u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/deploy-webapp.py
 
 # Start Admin Server and tail the logs
 echo "Starting WebLogic..."
-${DOMAIN_HOME}/bin/startWebLogic.sh
+${DOMAIN_HOME}/bin/startWebLogic.sh &
+childPID=$!
+wait $childPID
