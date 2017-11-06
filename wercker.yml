@@ -70,6 +70,7 @@ deploy-to-kubernetes:
      name: prepare kubernetes files for deployment
      code: |
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
+      cp -rf $WERCKER_SOURCE_DIR/* $WERCKER_OUTPUT_DIR/
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
 #
 #    - riceo/kubectl:
