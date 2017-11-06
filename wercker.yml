@@ -61,9 +61,7 @@ build:
 # as defined in the Wercker Web Workflows editor.
 deploy-to-kubernetes:
  # We only need a minimal shell environment to run Kubectl.
- box:
-  id: alpine
-  cmd: /bin/sh
+ box: oraclelinux:7.3
 
  steps:
   - bash-template
