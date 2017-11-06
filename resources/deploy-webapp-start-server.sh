@@ -21,7 +21,7 @@ trap _kill SIGKILL
 DOMAIN_HOME=/u01/oracle/user_projects/domains/base_domain
 
 #copying the ear of helloworld web application to autodeploy location of domain home
-cp -rf /u01/oracle/resources/HelloWorldEAR.ear ${DOMAIN_HOME}/autodeploy
+cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear ${DOMAIN_HOME}/autodeploy
 
 # Start Admin Server and tail the logs
 echo "Starting WebLogic..."
