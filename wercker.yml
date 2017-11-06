@@ -34,6 +34,7 @@ build:
       chmod 777 /u01/oracle/HelloWorld/*; echo ""
       echo "Checking the [/u01/oracle/HelloWorld] directory contents"
       ls -ltr /u01/oracle/HelloWorld/*
+      chmod 777 /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
 
   - script:
      name: "Stage the artifacts of Web Application"
