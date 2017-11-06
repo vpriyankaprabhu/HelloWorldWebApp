@@ -25,8 +25,8 @@ export WEBLOGI_HOME=/u01/oracle/wlserver/server/
 sh /u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/deploy-webapp.py
 
 # Start Admin Server and tail the logs
-#echo ""
-#echo "Starting WebLogic through script ..."
-#${DOMAIN_HOME}/bin/startWebLogic.sh &
-#childPID=$!
-#wait $childPID
+echo ""
+echo "Starting WebLogic through script ..."
+${DOMAIN_HOME}/bin/startWebLogic.sh &
+childPID=$!
+wait $childPID
