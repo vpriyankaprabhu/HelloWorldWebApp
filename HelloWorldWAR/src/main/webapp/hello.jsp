@@ -7,7 +7,11 @@
     <tr>
         <td>
             <h1>Hello World Application JSP Page</h1>
-            <p> This is the output from JSP page that is part of the Hello World application.</p>
+            <p> This is the output from JSP page that is part of the Hello World application.
+        </td>
+    </tr>
+    <tr>
+        <td>
         </td>
     </tr>
     <tr>
