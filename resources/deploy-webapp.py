@@ -32,9 +32,3 @@ print 'NOW STARTING APPLICATION...'
 startApplication('HelloWorldEAR')
 print '...STARTED APLLICATION HelloWorldEAR'
 
-print ''
-disconnect()
-shutdown(force='true')
-
-
-
