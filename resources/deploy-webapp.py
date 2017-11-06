@@ -30,5 +30,5 @@ print '..DEPLOYED WEB APPLICATION.'
 print ''
 print 'NOW STARTING APPLICATION...'
 startApplication('HelloWorldEAR')
-print '...STARTED APLLICATION HelloWorldEAR'
+print '...STARTED APPLICATION HelloWorldEAR'
 
