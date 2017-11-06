@@ -36,8 +36,8 @@ build:
      name: "Stage the artifacts of Web Application"
      code: |
       echo "";echo "Copying of the executable script to desired location and renaming the file."
-      cp -rf /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh /u01/oracle/entrypoint.sh
-      cp -rf /u01/oracle/HelloWorld/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
+      cp -rf /u01/oracle/resources/deploy-webapp-start-server.sh /u01/oracle/entrypoint.sh
+      cp -rf /u01/oracle/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
       chmod u+x  /u01/oracle/entrypoint.sh
       chmod u+x  /u01/oracle/deploy-webapp.py
       echo ""
