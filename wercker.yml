@@ -38,8 +38,10 @@ build:
       echo "";echo "Copying of the executable script to desired location and renaming the file."
       cp -rf /u01/oracle/resources/deploy-webapp-start-server.sh /u01/oracle/entrypoint.sh
       cp -rf /u01/oracle/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
-      chmod u+x  /u01/oracle/entrypoint.sh
-      chmod u+x  /u01/oracle/deploy-webapp.py
+      cp -rf /u01/oracle/resources/HelloWorldEAR.ear /u01/oracle/HelloWorldEAR.ear
+      chmod u+x /u01/oracle/entrypoint.sh
+      chmod u+x /u01/oracle/deploy-webapp.py
+      chmod u+x /u01/oracle/HelloWorldEAR.ear
       echo ""
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
@@ -72,12 +74,12 @@ deploy-to-kubernetes:
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
       cp -rf $WERCKER_SOURCE_DIR/* $WERCKER_OUTPUT_DIR/
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
-#
-#    - riceo/kubectl:
-#        name: deploy to kubernetes
-#        server: $KUBERNETES_MASTER
-#        gcloud-key-json: $GCP_KEY_JSON
-#        gke-cluster-name: $GKE_CLUSTER_NAME
-#        gke-cluster-zone: $GKE_CLUSTER_ZONE
-#        gke-cluster-project: $GKE_CLUSTER_PROJECT
-#        command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
+
+  - riceo/kubectl:
+     name: deploy to kubernetes
+     server: $KUBERNETES_MASTER
+     gcloud-key-json: $GCP_KEY_JSON
+     gke-cluster-name: $GKE_CLUSTER_NAME
+     gke-cluster-zone: $GKE_CLUSTER_ZONE
+     gke-cluster-project: $GKE_CLUSTER_PROJECT
+     command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
