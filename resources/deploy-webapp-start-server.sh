@@ -24,5 +24,6 @@ export WEBLOGI_HOME=/u01/oracle/wlserver/server/
 
 sh /u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/deploy-webapp.py
 
+sleep infinity
 childPID=$!
 wait $childPID

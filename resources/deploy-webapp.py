@@ -23,7 +23,7 @@ print 'CONNECT TO ADMIN SERVER';
 connect(adminUser, adminPassword, adminServerUrl);
 
 print ''
-print 'DEPLOYING ...'
+print 'DEPLOYING WEB APPLICATION...'
 deploy('HelloWorldEAR', '/u01/oracle/HelloWorldEAR.ear', targets='AdminServer')
 print '..DEPLOYED WEB APPLICATION.'
 
@@ -31,4 +31,5 @@ print ''
 print 'NOW STARTING APPLICATION...'
 startApplication('HelloWorldEAR')
 print '...STARTED APPLICATION HelloWorldEAR'
+print ''
 
