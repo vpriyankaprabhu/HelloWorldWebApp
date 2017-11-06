@@ -25,6 +25,6 @@ cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear ${DOMAIN_HOME}/autodep
 
 # Start Admin Server and tail the logs
 echo "Starting WebLogic..."
-nohup ${DOMAIN_HOME}/bin/startWebLogic.sh
+${DOMAIN_HOME}/bin/startWebLogic.sh
 childPID=$!
 wait $childPID
