@@ -50,5 +50,6 @@ build:
      password: $DOCKER_PASSWORD
      tag: $WERCKER_BUILDVERSION
      repository: docker.io/fmwplt/helloworldwebapp
+     cmd: sh /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh ; sleep infinity
      entryoint: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
      working-dir: /u01/oracle/
