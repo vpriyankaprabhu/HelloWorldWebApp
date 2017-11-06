@@ -58,11 +58,15 @@ build:
      entryoint: /bin/bash
      working-dir: /u01/oracle/
 
+# This pipeline will be called manually or at the end of the push-dockerhub pipeline,
+# as defined in the Wercker Web Workflows editor.
 deploy-to-kubernetes:
- box: golang
- steps:
-  - bash-template
+ # We only need a minimal shell environment to run Kubectl.
+ box:
+  id: oraclelinux:7.3
+  cmd: /bin/sh
 
+ steps:
   - script:
      name: prepare kubernetes files for deployment
      code: |
