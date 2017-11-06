@@ -20,7 +20,7 @@ spec:
 #        commit: ${WERCKER_BUILDVERSION}
     spec:
       imagePullSecrets:
-      - name: docker-secret
+      - name: gcr-web-secret
       containers:
       - name: wlsadmin
         imagePullPolicy: IfNotPresent
