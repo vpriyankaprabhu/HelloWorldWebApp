@@ -1,18 +1,23 @@
+---
+---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
  name: wlsadmin
  labels:
    app: wlsadmin
+#    commit: ${WERCKER_BUILDVERSION}
 spec:
   replicas: 1
   selector:
    matchLabels:
     app: wlsadmin
+#      commit: ${WERCKER_BUILDVERSION}
   template:
     metadata:
       labels:
        app: wlsadmin
+#        commit: ${WERCKER_BUILDVERSION}
     spec:
       imagePullSecrets:
       - name: gcr-web-secret
@@ -24,6 +29,10 @@ spec:
         - containerPort: 7001
         - containerPort: 22
         command: ["/u01/oracle/entrypoint.sh"]
+#       args:
+#          - --name=wlsadmin
+#          - --hostname=wlsadmin
+---
 ---
 kind: Service
 apiVersion: v1
@@ -49,4 +58,6 @@ spec:
     targetPort: 5556
     nodePort: 30012
   type: LoadBalancer
+---
+---
 ---

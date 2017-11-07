@@ -56,7 +56,7 @@ build:
      repository: docker.io/fmwplt/helloworldwebapp
      cmd: /u01/oracle/entrypoint.sh
      entryoint: /bin/bash
-     working-dir: /u01/oracle/HelloWorld
+     working-dir: /u01/oracle/k
 
 # This pipeline will be called manually or at the end of the push-dockerhub pipeline,
 # as defined in the Wercker Web Workflows editor.
