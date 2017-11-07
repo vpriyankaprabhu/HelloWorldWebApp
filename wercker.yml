@@ -71,7 +71,6 @@ deploy-to-kubernetes:
      name: prepare kubernetes files for deployment
      code: |
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
-      cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
 
   - riceo/kubectl:
