@@ -54,9 +54,9 @@ build:
      password: $DOCKER_PASSWORD
      tag: $WERCKER_BUILDVERSION
      repository: docker.io/fmwplt/helloworldwebapp
-     cmd: /u01/oracle/entrypoint.sh
+     cmd: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
      entryoint: /bin/bash
-     working-dir: /u01/oracle/k
+     working-dir: /u01/oracle
 
 # This pipeline will be called manually or at the end of the push-dockerhub pipeline,
 # as defined in the Wercker Web Workflows editor.
