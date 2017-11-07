@@ -4,7 +4,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
  name: wlsadmin
-  labels:
+ labels:
    app: wlsadmin
 #    commit: ${WERCKER_BUILDVERSION}
 spec:
