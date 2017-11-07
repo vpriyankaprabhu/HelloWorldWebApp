@@ -19,7 +19,7 @@ spec:
       containers:
       - name: wlsadmin
         imagePullPolicy: IfNotPresent
-        image: docker.io/fmwplt/helloworldwebapp:latest
+        image: docker.io/fmwplt/helloworldwebapp:${WERCKER_GIT_COMMIT}
         ports:
         - containerPort: 7001
         - containerPort: 22
