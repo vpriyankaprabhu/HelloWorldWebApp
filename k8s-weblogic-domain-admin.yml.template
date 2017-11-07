@@ -16,7 +16,7 @@ spec:
   template:
    metadata:
     labels:
-    app: wlsadmin
+     app: wlsadmin
 #        commit: ${WERCKER_BUILDVERSION}
     spec:
      imagePullSecrets:
