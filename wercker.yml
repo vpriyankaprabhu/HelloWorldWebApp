@@ -73,7 +73,7 @@ deploy-to-kubernetes:
       echo `pwd`
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
-      cat k8s-weblogic-domain-admin.yml
+      cat $WERCKER_OUTPUT_DIR/kubernetes/k8s-weblogic-domain-admin.yml
 
   - riceo/kubectl:
      name: deploy to kubernetes
