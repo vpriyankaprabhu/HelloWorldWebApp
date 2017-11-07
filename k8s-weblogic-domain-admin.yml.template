@@ -18,7 +18,7 @@ spec:
       - name: gcr-web-secret
       containers:
       - name: wlsadmin
-        image: docker.io/fmwplt/helloworldwebapp:${$WERCKER_GIT_COMMIT}
+        image: docker.io/fmwplt/helloworldwebapp:{$WERCKER_GIT_COMMIT}
         ports:
         - containerPort: 7001
         command: ["/u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh"]
