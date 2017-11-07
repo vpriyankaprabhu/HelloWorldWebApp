@@ -24,7 +24,7 @@ connect(adminUser, adminPassword, adminServerUrl);
 
 print ''
 print 'DEPLOYING WEB APPLICATION...'
-deploy('HelloWorldEAR', '/u01/oracle/HelloWorld/HelloWorldEAR.ear', targets='AdminServer')
+deploy('HelloWorldEAR', '/u01/oracle/HelloWorld/resources/HelloWorldEAR.ear', targets='AdminServer')
 print '..DEPLOYED WEB APPLICATION.'
 
 print ''
