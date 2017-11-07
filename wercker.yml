@@ -41,7 +41,7 @@ build:
       cp -rf /u01/oracle/HelloWorld/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
       cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear /u01/oracle/HelloWorldEAR.ear
       chmod u+x /u01/oracle/entrypoint.sh
-      chmod u+x /u01/oracle/deploy-webapp-start-server.sh
+      chmod u+x /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
       chmod u+x /u01/oracle/deploy-webapp.py
       chmod u+x /u01/oracle/HelloWorldEAR.ear
       echo ""
