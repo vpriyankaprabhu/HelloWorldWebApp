@@ -21,7 +21,6 @@ spec:
         image: docker.io/fmwplt/helloworldwebapp:${WERCKER_BUILDVERSION}
         ports:
         - containerPort: 7001
-        - containerPort: 22
         command: ["/u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh"]
 ---
 kind: Service

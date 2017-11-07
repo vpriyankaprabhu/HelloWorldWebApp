@@ -71,6 +71,7 @@ deploy-to-kubernetes:
      name: prepare kubernetes files for deployment
      code: |
       echo `pwd`
+      echo $WERCKER_BUILDVERSION
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
       cat $WERCKER_OUTPUT_DIR/kubernetes/k8s-weblogic-domain-admin.yml
