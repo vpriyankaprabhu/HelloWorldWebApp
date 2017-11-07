@@ -26,26 +26,26 @@ build:
       echo "Copying the built HelloWorldEAR Web Application to required location."
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
-      cp -r $WERCKER_SOURCE_DIR/. /u01/oracle/
+      cp -r $WERCKER_SOURCE_DIR/* /u01/oracle/HelloWorld
       echo "Changing the permissions for the compiled artifacts."
-      chmod 777 /u01/oracle/*; echo ""
-      echo "Checking the [/u01/oracle/] directory contents"
-      ls -ltr /u01/oracle/*
+      chmod 777 /u01/oracle/HelloWorld/*; echo ""
+      echo "Checking the [/u01/oracle/HelloWorld/] directory contents"
+      ls -ltr /u01/oracle/HelloWorld/*
 
   - script:
      name: "Stage the artifacts of Web Application"
      code: |
       echo "";echo "Copying of the executable script to desired location and renaming the file."
-      cp -rf /u01/oracle/resources/deploy-webapp-start-server.sh /u01/oracle/entrypoint.sh
-      cp -rf /u01/oracle/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
-      cp -rf /u01/oracle/resources/HelloWorldEAR.ear /u01/oracle/HelloWorldEAR.ear
+      cp -rf /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh /u01/oracle/entrypoint.sh
+      cp -rf /u01/oracle/HelloWorld/resources/deploy-webapp.py /u01/oracle/deploy-webapp.py
+      cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear /u01/oracle/HelloWorldEAR.ear
       chmod u+x /u01/oracle/entrypoint.sh
       chmod u+x /u01/oracle/deploy-webapp.py
       chmod u+x /u01/oracle/HelloWorldEAR.ear
       echo ""
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
-      cp -rf /u01/oracle/* $WERCKER_OUTPUT_DIR/
+      cp -rf  /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
   - internal/docker-push:
      name: Push the built image to docker repository
@@ -55,7 +55,7 @@ build:
      repository: docker.io/fmwplt/helloworldwebapp
      cmd: /u01/oracle/entrypoint.sh
      entryoint: /bin/bash
-     working-dir: /u01/oracle/
+     working-dir: /u01/oracle/HelloWorld
 
 # This pipeline will be called manually or at the end of the push-dockerhub pipeline,
 # as defined in the Wercker Web Workflows editor.
@@ -70,7 +70,7 @@ deploy-to-kubernetes:
      name: prepare kubernetes files for deployment
      code: |
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
-      cp -rf $WERCKER_SOURCE_DIR/* $WERCKER_OUTPUT_DIR/
+      cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
 
   - riceo/kubectl:
