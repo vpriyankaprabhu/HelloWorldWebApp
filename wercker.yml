@@ -52,7 +52,7 @@ build:
      name: Push the built image to docker repository
      username: $DOCKER_USERNAME
      password: $DOCKER_PASSWORD
-     tag: $WERCKER_BUILDVERSION
+     tag: $WERCKER_GIT_COMMIT
      repository: docker.io/fmwplt/helloworldwebapp
      cmd: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
      entryoint: /bin/bash
@@ -71,7 +71,7 @@ deploy-to-kubernetes:
      name: prepare kubernetes files for deployment
      code: |
       echo `pwd`
-      echo $WERCKER_BUILDVERSION
+      echo $WERCKER_GIT_COMMIT
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
       cat $WERCKER_OUTPUT_DIR/kubernetes/k8s-weblogic-domain-admin.yml
