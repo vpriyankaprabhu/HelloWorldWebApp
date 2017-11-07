@@ -26,6 +26,7 @@ build:
       echo "Copying the built HelloWorldEAR Web Application to required location."
       echo "Checking the ["`pwd`"] directory contents :"
       ls -ltr *;echo ""
+      mkdir -p /u01/oracle/HelloWorld
       cp -r $WERCKER_SOURCE_DIR/* /u01/oracle/HelloWorld
       echo "Changing the permissions for the compiled artifacts."
       chmod 777 /u01/oracle/HelloWorld/*; echo ""
