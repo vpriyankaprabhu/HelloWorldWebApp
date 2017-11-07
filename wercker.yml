@@ -70,9 +70,10 @@ deploy-to-kubernetes:
   - script:
      name: prepare kubernetes files for deployment
      code: |
+     echo `pwd`
       mkdir $WERCKER_OUTPUT_DIR/kubernetes
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
-      cat k8s-weblogic-domain-admin.yml
+      cat ./k8s-weblogic-domain-admin.yml
 
   - riceo/kubectl:
      name: deploy to kubernetes
