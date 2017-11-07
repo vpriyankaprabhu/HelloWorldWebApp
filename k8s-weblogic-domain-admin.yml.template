@@ -18,7 +18,6 @@ spec:
       - name: gcr-web-secret
       containers:
       - name: wlsadmin
-        imagePullPolicy: IfNotPresent
         image: docker.io/fmwplt/helloworldwebapp:${WERCKER_BUILDVERSION}
         ports:
         - containerPort: 7001

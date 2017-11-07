@@ -19,7 +19,7 @@ spec:
       containers:
       - name: wlsadmin
         imagePullPolicy: IfNotPresent
-        image: docker.io/fmwplt/helloworldwebapp:${WERCKER_BUILDVERSION}
+        image: docker.io/fmwplt/helloworldwebapp:b6d0e2fa2052
         ports:
         - containerPort: 7001
         - containerPort: 22
