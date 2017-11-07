@@ -15,10 +15,10 @@ spec:
 #      commit: ${WERCKER_BUILDVERSION}
   template:
    metadata:
-    labels:
-     app: wlsadmin
+     labels:
+      app: wlsadmin
 #        commit: ${WERCKER_BUILDVERSION}
-    spec:
+   spec:
      imagePullSecrets:
      - name: gcr-web-secret
       containers:
