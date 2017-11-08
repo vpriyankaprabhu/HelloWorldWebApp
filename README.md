@@ -77,7 +77,4 @@ gcloud container clusters get-credentials GCE_CLUSTER_NAME --zone GCE_CLUSTER_ZO
 
 http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard/#!/workload?namespace=default
 
-http://35.200.225.143:7001/console/login/LoginForm.jsp
-http://35.200.225.143:7001/hello/index.html
-
 ```

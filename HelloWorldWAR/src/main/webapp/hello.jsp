@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td>
-            <a href="index.html"> Back to Welcome Page.</a>
+            <a href="index.html"> Back to Welcome Page</a>
         </td>
     </tr>
 </table>
