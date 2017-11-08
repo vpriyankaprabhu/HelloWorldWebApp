@@ -22,7 +22,7 @@ build:
       cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
   - script:
-     name: "Executable permissions for deployment scripts of Application"
+     name: "Executable permissions for Application Deployment scripts"
      code: |
       chmod u+x /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
       chmod u+x /u01/oracle/HelloWorld/resources/deploy-webapp.py
@@ -52,7 +52,7 @@ deploy-to-kubernetes:
       mv k8s-*.yml $WERCKER_OUTPUT_DIR/kubernetes
 
   - riceo/kubectl:
-     name: deploy to kubernetes
+     name: Deploy to Kubernetes environment
      server: $KUBERNETES_MASTER
      gcloud-key-json: $GCP_KEY_JSON
      gke-cluster-name: $GKE_CLUSTER_NAME

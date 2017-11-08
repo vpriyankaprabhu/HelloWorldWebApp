@@ -22,7 +22,7 @@ DOMAIN_HOME=/u01/oracle/user_projects/domains/base_domain
 export WEBLOGI_HOME=/u01/oracle/wlserver/server/
 . $WEBLOGI_HOME/bin/setWLSEnv.sh
 
-sh /u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/deploy-webapp.py
+sh /u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/HelloWorld/resources/deploy-webapp.py
 
 sleep infinity
 childPID=$!
