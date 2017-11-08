@@ -12,7 +12,6 @@ build:
   - script:
      name: "Build the Project -> HelloWorld Web Application"
      code: |
-      echo "Building the artifacts required to create HelloWorld web application."
       mvn clean install
 
   - script:
@@ -20,19 +19,14 @@ build:
      code: |
       mkdir -p /u01/oracle/HelloWorld
       cp -r $WERCKER_SOURCE_DIR/* /u01/oracle/HelloWorld
-
-  - script:
-     name: "Stage the artifacts of Web Application"
-     code: |
-      cp -rf /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear /u01/oracle/HelloWorldEAR.ear
-      cp -rf  /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
+      cp -rf /u01/oracle/HelloWorld/* $WERCKER_OUTPUT_DIR/
 
   - script:
      name: "Executable permissions for deployment scripts of Application"
      code: |
       chmod u+x /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
       chmod u+x /u01/oracle/HelloWorld/resources/deploy-webapp.py
-      chmod u+x /u01/oracle/HelloWorldEAR.ear
+      chmod u+x /u01/oracle/HelloWorld/resources/HelloWorldEAR.ear
 
   - internal/docker-push:
      name: Push the built image to docker repository
@@ -42,7 +36,7 @@ build:
      repository: docker.io/fmwplt/helloworldwebapp
      cmd: /u01/oracle/HelloWorld/resources/deploy-webapp-start-server.sh
      entryoint: /bin/bash
-     working-dir: /u01/oracle
+     working-dir: /u01/oracle/HelloWorld
 
 deploy-to-kubernetes:
 
